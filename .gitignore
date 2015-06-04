@@ -1,0 +1,3 @@
+undodir
+bundle/*
+private/*.vim
