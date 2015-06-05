@@ -44,5 +44,4 @@ if has('gui_running')
     set guioptions-=T 
     set guioptions-=r 
     set guioptions-=L 
-    AirlineTheme luna
 endif
