@@ -39,7 +39,12 @@ set laststatus=2
 " GUI Specific options
 
 if has('gui_running')
-    set guifont=Menlo\ for\ Powerline:h16
+    if has('mac')
+        set guifont=Menlo\ for\ Powerline:h16
+    elseif has('unix')
+        set guifont=Source\ Code\ Pro\ For\ Powerline
+    endif
+
     set linespace=10
     set guioptions-=T 
     set guioptions-=r 
