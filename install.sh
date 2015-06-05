@@ -1,17 +1,22 @@
 #!/bin/bash
 
-git clone https://github.com/gmarik/Vundle.vim $HOME/.vim/bundle/Vundle.vim
+echo "Installing Vundle as default plugin manager. hang on."
+git clone https://github.com/gmarik/Vundle.vim $HOME/.vim/bundle/Vundle.vim &> /dev/null
 vim +VundleInstall +qa
 
-echo "\nMaking YouCompleteMe - \n"
-/bin/bash $HOME/.vim/bundle/YouCompleteMe/install.sh &> /dev/null
-echo "\nMaking Tagbar - \n"
-cd $HOME/.vim/bundle/tagbar-phpctags.vim/ && make &> /dev/null && cd -
-echo "\nMaking Ultisnip - \n"
+echo "Making Tagbar - "
+cd $HOME/.vim/bundle/tagbar-phpctags.vim/ && make &> /dev/null && cd - &> /dev/null
+echo "Making Ultisnip - "
 /bin/bash $HOME/.vim/bundle/ultisnips/install_vim.sh &> /dev/null
-echo "\nMaking Vimproc - \n"
-cd $HOME/.vim/bundle/vimproc/ && make &> /dev/null && cd -
+echo "Making Vimproc - "
+cd $HOME/.vim/bundle/vimproc/ && make &> /dev/null && cd - &> /dev/null
+
+if [ -f $HOME/.vimrc ]; then 
+    mv $HOME/.vimrc $HOME/.vimrc_old
+    echo "Your previous vimrc file has been moved from $HOME/.vimrc to $HOME/.vimrc_old"
+    echo "You might want to manually copy over the config you want from older file."
+fi
 
 ln -s $HOME/.vim/vimrc $HOME/.vimrc
 
-echo "\nDone!\n"
+echo "Enjoy the new configuration."
