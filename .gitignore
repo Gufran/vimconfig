@@ -1,3 +1,5 @@
 undodir
 bundle/*
 private/*.vim
+.netrwhist
+.vim-bookmarks

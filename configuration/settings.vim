@@ -3,7 +3,7 @@ syntax on
 
 let mapleader = ','
 let g:ctrlp_map = '<c-p>'
-let g:ctrlp_cmd = 'CtrlP'
+let g:ctrlp_cmd = 'CtrlPMixed'
 
 let g:syntastic_always_populate_loc_list = 0
 let g:syntastic_auto_loc_list = 0
@@ -56,3 +56,19 @@ let g:neocomplete#enable_at_startup = 1
 let g:neocomplete#enable_smart_case = 1
 let g:neocomplete#sources#syntax#min_keyword_length = 1
 
+" Bookmarks - Change the color of bookmark icon
+highlight BookmarkSign ctermbg=NONE ctermfg=160
+highlight BookmarkLine ctermbg=194 ctermfg=NONE
+" Change the bookmark icon
+let g:bookmark_sign = '♥'
+let g:bookmark_manage_per_buffer = 1
+let g:bookmark_auto_save_file = expand('~/.vim/bookmarks')
+
+" Integrate with Unite
+call unite#custom#profile('source/vim_bookmarks', 'context', {
+    \   'winheight': 13,
+    \   'direction': 'botright',
+    \   'start_insert': 1,
+    \   'keep_focus': 0,
+    \   'no_quit': 0,
+    \ })
