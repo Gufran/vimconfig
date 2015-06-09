@@ -72,3 +72,6 @@ call unite#custom#profile('source/vim_bookmarks', 'context', {
     \   'keep_focus': 0,
     \   'no_quit': 0,
     \ })
+
+" Airline
+let g:airline_theme = 'luna'
