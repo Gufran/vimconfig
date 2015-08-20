@@ -25,3 +25,20 @@ au BufEnter * exec "inoremap <silent> " . g:UltiSnipsExpandTrigger . " <C-R>=g:U
 au BufRead,BufNewFile *.php inoremap <buffer> <C-?> :call PhpDoc()<CR>
 au BufRead,BufNewFile *.php nnoremap <buffer> <C-?> :call PhpDoc()<CR>
 au BufRead,BufNewFile *.php vnoremap <buffer> <C-?> :call PhpDocRange()<CR>"
+
+" Highlight current line in current window
+autocmd WinEnter * setlocal cursorline
+autocmd WinLeave * setlocal nocursorline
+
+" Save my folds, vim
+set viewoptions-=options
+augroup vimrc
+    autocmd BufWritePost *
+    \   if expand('%') != '' && &buftype !~ 'nofile'
+    \|      mkview
+    \|  endif
+    autocmd BufRead *
+    \   if expand('%') != '' && &buftype !~ 'nofile'
+    \|      silent loadview
+    \|  endif
+augroup END

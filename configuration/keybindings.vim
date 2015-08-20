@@ -1,5 +1,9 @@
 " Mappings
 
+map <F1> NOP
+vmap <F1> NOP
+imap <F1> NOP
+
 " Jump over wrapped lines (God forbid I ever need this)
 nnoremap j gj
 nnoremap k gk
@@ -19,7 +23,8 @@ map <space> /
 map <leader>c :nohl<CR>
 map <leader>d :Bdelete<CR>
 map <leader>n :bn<CR>
-map <c-r> :CtrlPBuffer<CR>
+map <c-r> :CommandTTag<CR>
+map <c-p> :CommandT<CR>
 
 " Split movement
 map <c-l> <c-w>l

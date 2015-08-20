@@ -3,3 +3,4 @@ bundle/*
 private/*.vim
 .netrwhist
 .vim-bookmarks
+view

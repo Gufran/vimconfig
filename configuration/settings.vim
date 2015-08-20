@@ -2,15 +2,11 @@ filetype plugin indent on
 syntax on
 
 let mapleader = ','
-let g:ctrlp_map = '<c-p>'
-let g:ctrlp_cmd = 'CtrlPMixed'
 
 let g:syntastic_always_populate_loc_list = 0
 let g:syntastic_auto_loc_list = 0
 let g:syntastic_check_on_open = 0
 let g:syntastic_check_on_wq = 0
-
-let g:ctrlp_custom_ignore = '\v[\/]\.(git|hg|svn)$'
 
 let g:php_refactor_command='php ' . expand('~/.composer/vendor/bin/refactor')
 
@@ -27,11 +23,6 @@ let g:multi_cursor_next_key='<C-d>'
 let g:multi_cursor_prev_key='<C-p>'
 let g:multi_cursor_skip_key='<C-x>'
 let g:multi_cursor_quit_key='<Esc>'
-
-" Configure YouCompleteMe and UltiSnip with supertab.
-let g:ycm_key_list_select_completion = ['<C-n>', '<Down>']
-let g:ycm_key_list_previous_completion = ['<C-p>', '<Up>']
-let g:SuperTabDefaultCompletionType = '<C-n>'
  
 let g:UltiSnipsJumpForwardTrigger="<tab>"
 let g:UltiSnipsListSnippets="<c-e>"
@@ -56,14 +47,6 @@ let g:neocomplete#enable_at_startup = 1
 let g:neocomplete#enable_smart_case = 1
 let g:neocomplete#sources#syntax#min_keyword_length = 1
 
-" Bookmarks - Change the color of bookmark icon
-highlight BookmarkSign ctermbg=NONE ctermfg=160
-highlight BookmarkLine ctermbg=194 ctermfg=NONE
-" Change the bookmark icon
-let g:bookmark_sign = '♥'
-let g:bookmark_manage_per_buffer = 1
-let g:bookmark_auto_save_file = expand('~/.vim/bookmarks')
-
 " Integrate with Unite
 call unite#custom#profile('source/vim_bookmarks', 'context', {
     \   'winheight': 13,
@@ -75,3 +58,38 @@ call unite#custom#profile('source/vim_bookmarks', 'context', {
 
 " Airline
 let g:airline_theme = 'luna'
+
+" vim-go {{{
+" Set path to Go and go binary directory
+let $GOPATH = expand("~/Workspace/Go")
+let $PATH = $PATH.":".$GOPATH."/bin"
+
+" Open the doc or definition in vertical split
+au FileType go nmap K <Plug>(go-doc-vertical)
+au FileType go nmap <leader>K <Plug>(go-def-vertical)
+
+" Rename identifier under cursor
+au FileType go nmap <S-F6> <Plug>(go-rename)
+
+" Highlightings
+let g:go_highlight_functions = 1
+let g:go_highlight_methods = 1
+let g:go_highlight_structs = 1
+let g:go_highlight_operators = 1
+let g:go_highlight_build_constraints = 1
+let g:go_highlight_extra_types = 1
+let g:go_highlight_space_tab_error = 1
+let g:go_highlight_trailing_whitespace_error = 1
+let g:go_highlight_build_constraints = 0
+let g:go_textobj_enabled = 1
+
+" Auto imports
+let g:go_fmt_command = "goimports"
+" end vim-go }}}
+
+" CommandT settings {{{
+let g:CommandTMaxHeight = 10
+let g:CommandTTraverseSCM = "pwd"
+let g:CommandTMatchWindowReverse = 1
+
+" }}}
