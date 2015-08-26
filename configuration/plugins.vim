@@ -24,7 +24,6 @@ Plugin 'jiangmiao/auto-pairs'
 Plugin 'Shougo/neocomplete.vim'
 Plugin 'airblade/vim-gitgutter'
 Plugin 'jistr/vim-nerdtree-tabs'
-Plugin 'scrooloose/nerdcommenter'
 Plugin 'terryma/vim-multiple-cursors'
 
 call vundle#end()

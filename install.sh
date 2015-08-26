@@ -6,8 +6,6 @@ vim +VundleInstall +qa
 
 echo "Making Tagbar - "
 cd $HOME/.vim/bundle/tagbar-phpctags.vim/ && make &> /dev/null && cd - &> /dev/null
-echo "Making Ultisnip - "
-/bin/bash $HOME/.vim/bundle/ultisnips/install_vim.sh &> /dev/null
 echo "Making Vimproc - "
 cd $HOME/.vim/bundle/vimproc/ && make &> /dev/null && cd - &> /dev/null
 
