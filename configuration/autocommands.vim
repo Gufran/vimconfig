@@ -21,12 +21,6 @@ autocmd WinLeave * setlocal nocursorline
 au FileType go nmap K <Plug>(go-doc-vertical)
 au FileType go nmap <leader>K <Plug>(go-def-vertical)
 
-" Rename identifier under cursor
-au FileType go nmap <S-F6> <Plug>(go-rename)
-
-" Lint Go on save
-autocmd BufWritePre *.go :GoLint
-
 " Save my folds, vim
 set viewoptions-=options
 augroup vimrc

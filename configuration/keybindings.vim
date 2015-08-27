@@ -8,10 +8,6 @@ imap <F1> <NOP>
 nnoremap j gj
 nnoremap k gk
 
-" Split the buffer
-nmap vs :vsplit<cr>
-nmap sp :split<cr>
-
 " Dont lose the selection while indenting
 vnoremap < <gv
 vnoremap > >gv
@@ -33,9 +29,6 @@ map <c-k> <c-w>k
 map <leader>k :NERDTreeTabsToggle<CR>
 nnoremap <F5> :GundoToggle<CR>
 noremap <expr> <CR> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
-
-" Tagbar
-nmap <leader>t :TagbarToggle<CR><c-l>"
 
 " Unite {{{
 call unite#filters#matcher_default#use(['matcher_fuzzy'])
