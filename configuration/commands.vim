@@ -1,9 +1,11 @@
 " Enable true color support
-let &t_8f="\e[38;2;%ld;%ld;%ldm"
-let &t_8b="\e[48;2;%ld;%ld;%ldm"
-set guicolors
+if !has('gui_running')
+    let &t_8f="\e[38;2;%ld;%ld;%ldm"
+    let &t_8b="\e[48;2;%ld;%ld;%ldm"
+    set guicolors
+endif
 
-colorscheme flatcolor
+colorscheme apprentice
 set background=dark
 set nocompatible
 set wildmode=longest,list
@@ -22,7 +24,7 @@ set incsearch
 set ignorecase
 set smartcase
 set hlsearch
-set noshowmode
+set showmode
 set pastetoggle=<F2>
 set mouse=a
 set number
@@ -35,12 +37,10 @@ set expandtab
 set backspace=indent,eol,start
 set wrap
 set linebreak
-set showbreak=...
+set showbreak=\ \ \ \ >\ \ \ \ 
 set noerrorbells
 set shiftround
-set statusline+=%#warningmsg#
-set statusline+=%{SyntasticStatuslineFlag()}
-set statusline+=%*
+set statusline=
 set laststatus=2
 
 " GUI Specific options
@@ -56,5 +56,22 @@ if has('gui_running')
     set guioptions-=T
     set guioptions-=r
     set guioptions-=L
+    set guioptions-=l
+    set guioptions-=b
     set guioptions-=m
+    set guioptions-=P
+    set guioptions-=c
 endif
+
+" Put the statusline to some use
+hi User0 guifg=#ffffff  guibg=#094afe
+hi User1 guifg=#ffffff  guibg=#810085
+hi User2 guifg=#051d00  guibg=#7dcc7d
+hi User3 guifg=#ffffff  guibg=#5b7fbb
+
+set statusline+=%0*\[Buf\ %n]                  "buffernr
+set statusline+=%2*\ %f\                       "File+path
+set statusline+=%0*\ %y\                       "FileType
+set statusline+=%0*\ %=\ row:%l/%L\ (%03p%%)\  "Rownumber/total (%)
+set statusline+=%2*\ col:%03c\                 "Colnr
+set statusline+=%2*\ \ %m%r%w\ %P\ \           "Modified? Readonly? Top/bot.
