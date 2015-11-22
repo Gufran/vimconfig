@@ -4,3 +4,4 @@ private/*.vim
 .netrwhist
 .vim-bookmarks
 view
+autoload
