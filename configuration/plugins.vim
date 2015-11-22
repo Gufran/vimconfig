@@ -1,29 +1,24 @@
 " Plugin definitions
-set rtp+=~/.vim/bundle/Vundle.vim
+call plug#begin('~/.vim/bundle')
 
-call vundle#begin()
+Plug 'fatih/vim-go'
+Plug 'sjl/gundo.vim'
+Plug 'moll/vim-bbye'
+Plug 'xolox/vim-misc'
+Plug 'MaxSt/FlatColor'
+Plug 'Shougo/unite.vim'
+Plug 'ervandew/supertab'
+Plug 'tsukkee/unite-tag'
+Plug 'Shougo/neoyank.vim'
+Plug 'romainl/apprentice'
+Plug 'tpope/vim-fugitive'
+Plug 'Shougo/vimproc.vim', { 'do': 'make' }
+Plug 'Shougo/vimfiler.vim'
+Plug 'Shougo/unite-outline'
+Plug 'tpope/vim-commentary'
+Plug 'tpope/vim-unimpaired'
+Plug 'jiangmiao/auto-pairs'
+Plug 'Valloric/YouCompleteMe', { 'do': './install.py --clang-completer --gocode-completer' }
+Plug 'airblade/vim-gitgutter'
 
-Plugin 'fatih/vim-go'
-Plugin 'sjl/gundo.vim'
-Plugin 'moll/vim-bbye'
-Plugin 'xolox/vim-misc'
-Plugin 'MaxSt/FlatColor'
-Plugin 'Shougo/unite.vim'
-Plugin 'gmarik/Vundle.vim'
-Plugin 'ervandew/supertab'
-Plugin 'tsukkee/unite-tag'
-Plugin 'romainl/apprentice'
-Plugin 'tpope/vim-fugitive'
-Plugin 'Shougo/vimproc.vim'
-Plugin 'scrooloose/nerdtree'
-Plugin 'Shougo/vimfiler.vim'
-Plugin 'Shougo/unite-outline'
-Plugin 'tpope/vim-commentary'
-Plugin 'tpope/vim-unimpaired'
-Plugin 'jiangmiao/auto-pairs'
-Plugin 'Valloric/YouCompleteMe'
-Plugin 'airblade/vim-gitgutter'
-Plugin 'jistr/vim-nerdtree-tabs'
-Plugin 'haya14busa/incsearch.vim'
-
-call vundle#end()
+call plug#end()
