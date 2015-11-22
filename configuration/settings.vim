@@ -3,19 +3,6 @@ syntax on
 
 let mapleader = ','
 
-let g:multi_cursor_use_default_mapping=0
-let g:multi_cursor_start_key='<C-d>'
-let g:multi_cursor_exit_from_visual_mode=0
-let g:multi_cursor_exit_from_insert_mode=0
-let g:multi_cursor_start_word_key='g<C-d>'
-let g:multi_cursor_next_key='<C-d>'
-let g:multi_cursor_prev_key='<C-p>'
-let g:multi_cursor_skip_key='<C-x>'
-let g:multi_cursor_quit_key='<Esc>'
-
-" Tagbar
-let g:tagbar_ctags_bin = "/usr/local/bin/ctags"
-
 " Unite
 let g:unite_source_history_yank_enable = 1
 let g:unite_source_grep_command = 'ag'
@@ -44,11 +31,17 @@ let g:go_fmt_command = "goimports"
 " end vim-go }}}
 
 " Unite {{{
-call unite#custom#profile('default', 'context', {
+call unite#filters#sorter_default#use(['sorter_selecta'])
+
+call unite#custom#profile('default,files', 'context', {
             \   'start_insert': 1,
             \   'winheight': 10,
             \   'direction': 'dynamicbottom',
-            \   'prompt': ' > '
+            \   'prompt': ' > ',
+            \   'auto_resize': 0,
+            \   'vertical': 0,
+            \   'prompt_direction': 'top',
+            \   'silent': 1,
             \ })
 
 call unite#custom#profile('outline', 'context', {
@@ -62,8 +55,6 @@ call unite#custom#profile('outline', 'context', {
             \   'silent': 1,
             \   'vertical': 0,
             \ })
-
-nnoremap <silent> <D-r> :Unite -profile-name=outline outline<CR>
 
 let g:unite_source_menu_menus = {
             \             'git' : {
@@ -88,10 +79,10 @@ let g:unite_source_menu_menus = {
             \            },
             \    }
 
-nnoremap <silent> <C-m> :Unite -silent -start-insert menu:git<CR>
 " }}}
 
 " VimFiler {{{
+let g:vimfiler_as_default_explorer = 1
 let g:vimfiler_tree_indentation = 2
 let g:vimfiler_tree_leaf_icon = ''
 let g:vimfiler_tree_opened_icon = '▾'
@@ -99,8 +90,9 @@ let g:vimfiler_tree_closed_icon = '▸'
 let g:vimfiler_readonly_file_icon = '✗'
 let g:vimfiler_marked_file_icon = '⌇'
 let g:vimfiler_expand_jump_to_first_child = 0
+let g:vimfiler_no_default_key_mappings = 1
 
-call vimfiler#custom#profile('default', 'context', {
+call vimfiler#custom#profile('vimfiler', 'context', {
             \ 'explorer' : 1,
             \ 'winwidth' : 30,
             \ 'winminwidth' : 30,
@@ -109,8 +101,11 @@ call vimfiler#custom#profile('default', 'context', {
             \ 'explorer_columns' : 'type',
             \ 'status' : 1,
             \ 'safe' : 0,
+            \ 'force_hide': 1,
             \ 'split' : 1,
-            \ 'no_quit' : 1,
-            \ 'force_hide' : 1,
+            \ 'fnamewidth': 0,
+            \ 'split_action': 'left',
             \ })
 " }}}
+
+nnoremap <silent> <leader>k :VimFiler<CR>
