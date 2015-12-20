@@ -19,12 +19,14 @@ autocmd FileType go nmap <buffer> K <Plug>(go-doc-vertical)
 autocmd FileType go nmap <buffer> <leader>K <Plug>(go-def-vertical)
 autocmd FileType go nmap <buffer> <C-G> :GoInfo<CR>
 
-" Format markdown tables using tab in normal mode
-autocmd FileType markdown nmap <buffer> <Tab> :TableFormat<CR>
-autocmd FileType markdown setlocal textwidth=100 colorcolumn=101 nowrap
-
 " Golang tag navigation with GoDef
 autocmd FileType go map <buffer> <C-]> :GoDef<CR>
+
+" Format markdown tables using tab in normal mode
+autocmd FileType markdown setlocal textwidth=100 colorcolumn=101 nowrap
+
+" PHP Autocompleter
+autocmd FileType php setlocal omnifunc=phpcomplete_extended#CompletePHP
 
 " VimFiler keybindings {{{
 autocmd FileType vimfiler nmap <silent> <buffer>        a        <Plug>(vimfiler_new_file)

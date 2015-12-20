@@ -6,6 +6,7 @@ imap <F1> <NOP>
 
 nnoremap j gj
 nnoremap k gk
+nnoremap Y y_
 
 " Dont lose the selection while indenting
 vnoremap < <gv
@@ -39,3 +40,23 @@ nnoremap <silent> <C-n> :Unite -profile-name=outline -toggle outline<CR>
 nnoremap <silent> <C-m> :Unite -silent -start-insert -toggle menu:git<CR>
 " }}} Unite end
 
+" Insert newline sensibly
+nmap <CR> o<Esc>
+imap <C-CR> <Esc>o
+
+" Wrap visul selection in pairs {{{
+" TODO: insert closing pair when autopair is not active
+vmap " c"<Esc>pa
+vmap ' c'<Esc>pa
+
+vmap ( c(<Esc>pa
+vmap ) c(<Esc>pa
+
+vmap { c{<Esc>pa
+vmap } c{<Esc>pa
+
+vmap [ c[<Esc>pa
+vmap ] c[<Esc>pa
+
+vmap ` c`<Esc>pa
+" }}}
