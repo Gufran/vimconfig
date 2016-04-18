@@ -30,6 +30,15 @@ let g:go_textobj_enabled = 1
 let g:go_fmt_command = "goimports"
 " end vim-go }}}
 
+" Resolve ultisnip and supertab conflict
+let g:ycm_key_list_select_completion = ['<C-n>', '<Down>']
+let g:ycm_key_list_previous_completion = ['<C-p>', '<Up>']
+let g:SuperTabDefaultCompletionType = '<C-n>'
+
+let g:UltiSnipsExpandTrigger = "<tab>"
+let g:UltiSnipsJumpForwardTrigger = "<tab>"
+let g:UltiSnipsJumpBackwardTrigger = "<s-tab>"
+
 " Unite {{{
 call unite#filters#sorter_default#use(['sorter_selecta'])
 
@@ -55,30 +64,6 @@ call unite#custom#profile('outline', 'context', {
             \   'silent': 1,
             \   'vertical': 0,
             \ })
-
-let g:unite_source_menu_menus = {
-            \             'git' : {
-            \                   'description' : '                    Git commands with Fugitive                             ⌘ <C-m>',
-            \                   'command_candidates': [
-            \                        ['▷ git status                         show interactive git status in a split window', 'Gstatus'],
-            \                        ['▷ git diff                           show interactive git diff in a split window', 'Gdiff'],
-            \                        ['▷ git commit                         commit changes in git repository', 'Gcommit'],
-            \                        ['▷ git log                            show interactive git log in a split window', 'exe "silent Glog | Unite quickfix"'],
-            \                        ['▷ git blame                          show interactive git blame in a split window', 'Gblame'],
-            \                        ['▷ git stage                          selectively stage chages to be committed', 'Gwrite'],
-            \                        ['▷ git stage hunk                     stage current hunk identified by cursor position', 'GitGutterStageHunk'],
-            \                        ['▷ git unstage hunk                   unstage current hunk identified by cursor position', 'GitGutterRevertHunk'],
-            \                        ['▷ git toggle diff                    toggle diff highlighting', 'GitGutterLineHighlightsToggle'],
-            \                        ['▷ git checkout                       checkout a commit or branch', 'Gread'],
-            \                        ['▷ git rm                             remove changes or untracked files', 'Gremove'],
-            \                        ['▷ git mv                             move file to another location and start tracking', 'exe "Gmove " input("destination: ")'],
-            \                        ['▷ git push                           push committed changes to a remote', 'Git! push'],
-            \                        ['▷ git pull                           pull changes from a remote', 'Git! pull'],
-            \                        ['▷ git prompt                         start an interactive git shell', 'exe "Git! " input("git command: ")'],
-            \                   ],
-            \            },
-            \    }
-
 " }}}
 
 " VimFiler {{{

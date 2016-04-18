@@ -5,3 +5,5 @@ private/*.vim
 .vim-bookmarks
 view
 autoload
+UltiSnips
+spell

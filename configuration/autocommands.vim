@@ -10,10 +10,6 @@ autocmd StdinReadPre * let s:std_in=1
 " Enable syntax highlighting for config files
 autocmd FileType vim set syntax=vim
 
-" Highlight current line in current window
-autocmd WinEnter * setlocal cursorline
-autocmd WinLeave * setlocal nocursorline
-
 " Open the doc or definition in vertical split
 autocmd FileType go nmap <buffer> K <Plug>(go-doc-vertical)
 autocmd FileType go nmap <buffer> <leader>K <Plug>(go-def-vertical)

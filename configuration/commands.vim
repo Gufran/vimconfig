@@ -1,7 +1,7 @@
 " Enable true color support
 if has('gui_running')
     if has('mac')
-        set guifont=Fira\ Code\ Retina:h14
+        set guifont=Fira\ Code\ Retina:h16
     elseif has('unix')
         set guifont=Source\ Code\ Pro\ For\ Powerline
     endif
@@ -38,8 +38,14 @@ if !has('nvim')
     set wildmenu
 endif
 
-colorscheme onedark
+if has('gui_macvim')
+    set macmeta
+endif
+
 set background=dark
+colorscheme nofrils-dark
+let g:nofrils_strbackgrounds=1
+
 set wildmode=longest,list
 set history=10000
 set undofile
@@ -64,6 +70,13 @@ set linebreak
 set showbreak=\ \ \ \ ↘\ \ \ \ 
 set noerrorbells
 set shiftround
+set cf
+set clipboard+=unnamed
+set complete=.,w,b,u,U
+set listchars=""
+set listchars=tab:‣‣
+set listchars+=trail:∙
+
 set statusline=
 
 " Statusline {{{
