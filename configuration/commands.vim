@@ -1,6 +1,9 @@
+set encoding=utf8
+
 " Enable true color support
 if has('gui_running')
     if has('mac')
+        set macligatures
         set guifont=Fira\ Code\ Retina:h16
     elseif has('unix')
         set guifont=Source\ Code\ Pro\ For\ Powerline
@@ -21,7 +24,7 @@ else
 
     if !has('nvim')
         set t_ut=
-        set guicolors
+        set termguicolors
     endif
 endif
 
@@ -43,11 +46,10 @@ if has('gui_macvim')
 endif
 
 set background=dark
-colorscheme nofrils-dark
-let g:nofrils_strbackgrounds=1
+colorscheme base16-ocean
 
 set wildmode=longest,list
-set history=10000
+set history=1000
 set undofile
 set undodir=~/.vim/undodir
 set completeopt=menu
@@ -74,7 +76,7 @@ set cf
 set clipboard+=unnamed
 set complete=.,w,b,u,U
 set listchars=""
-set listchars=tab:‣‣
+set listchars+=tab:‣‣
 set listchars+=trail:∙
 
 set statusline=

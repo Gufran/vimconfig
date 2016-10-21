@@ -14,7 +14,6 @@ let g:unite_source_grep_recursive_opt = ''
 let $GOPATH = expand("~/Workspace/Go")
 let $PATH = $PATH.":".$GOPATH."/bin"
 
-" Highlightings
 let g:go_highlight_functions = 1
 let g:go_highlight_methods = 1
 let g:go_highlight_structs = 1
@@ -25,19 +24,8 @@ let g:go_highlight_space_tab_error = 1
 let g:go_highlight_trailing_whitespace_error = 1
 let g:go_highlight_build_constraints = 1
 let g:go_textobj_enabled = 1
-
-" Auto imports
 let g:go_fmt_command = "goimports"
 " end vim-go }}}
-
-" Resolve ultisnip and supertab conflict
-let g:ycm_key_list_select_completion = ['<C-n>', '<Down>']
-let g:ycm_key_list_previous_completion = ['<C-p>', '<Up>']
-let g:SuperTabDefaultCompletionType = '<C-n>'
-
-let g:UltiSnipsExpandTrigger = "<tab>"
-let g:UltiSnipsJumpForwardTrigger = "<tab>"
-let g:UltiSnipsJumpBackwardTrigger = "<s-tab>"
 
 " Unite {{{
 call unite#filters#sorter_default#use(['sorter_selecta'])
@@ -93,4 +81,9 @@ call vimfiler#custom#profile('vimfiler', 'context', {
             \ })
 " }}}
 
-nnoremap <silent> <leader>k :VimFiler<CR>
+" PHP Complete
+let g:phpcomplete_mappings = {
+   \ 'jump_to_def': '<C-]>',
+   \ 'jump_to_def_split': '<C-W><C-]>',
+   \ 'jump_to_def_vsplit': '<C-W><C-\>',
+   \}

@@ -12,17 +12,11 @@ autocmd FileType vim set syntax=vim
 
 " Open the doc or definition in vertical split
 autocmd FileType go nmap <buffer> K <Plug>(go-doc-vertical)
-autocmd FileType go nmap <buffer> <leader>K <Plug>(go-def-vertical)
 autocmd FileType go nmap <buffer> <C-G> :GoInfo<CR>
-
-" Golang tag navigation with GoDef
-autocmd FileType go map <buffer> <C-]> :GoDef<CR>
+autocmd FileType go nmap <buffer> <S-F6> <Plug>(go-rename)
 
 " Format markdown tables using tab in normal mode
 autocmd FileType markdown setlocal textwidth=100 colorcolumn=101 nowrap
-
-" PHP Autocompleter
-autocmd FileType php setlocal omnifunc=phpcomplete_extended#CompletePHP
 
 " VimFiler keybindings {{{
 autocmd FileType vimfiler nmap <silent> <buffer>        a        <Plug>(vimfiler_new_file)
