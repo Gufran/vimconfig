@@ -45,9 +45,10 @@ if has('gui_macvim')
     set macmeta
 endif
 
-set background=dark
-colorscheme base16-ocean
+set background=light
+colorscheme base16-onedark
 
+set fileformat=unix
 set wildmode=longest,list
 set history=1000
 set undofile
@@ -62,7 +63,7 @@ set ignorecase
 set smartcase
 set showmode
 set pastetoggle=<F2>
-set number
+set relativenumber
 set tabstop=4
 set shiftwidth=4
 set softtabstop=4
@@ -78,6 +79,7 @@ set complete=.,w,b,u,U
 set listchars=""
 set listchars+=tab:‣‣
 set listchars+=trail:∙
+set foldlevel=10
 
 set statusline=
 
@@ -93,4 +95,13 @@ set statusline+=%0*\ %y\                       " FileType
 set statusline+=%0*\ %=\ row:%l/%L\ (%03p%%)\  " Rownumber/total (%)
 set statusline+=%2*\ col:%03c\                 " Colnr
 set statusline+=%2*\ \ %m%r%w\ %P\ \           " Modified? Readonly? Top/bot.
+" }}}
+
+" Custom commands to help with linux utils {{{
+command! -range=% -nargs=0 Columnize :<line1>,<line2>call RunSysCom('column -t -s "' . nr2char(getchar()) . '"')
+command! -range=% -nargs=0 Cut       :<line1>,<line2>call RunSysCom('tr -s " " | cut -d "' . input('delimiter', ' ') . '" -f ' . input('fields'))
+command! -range=% -nargs=0 Json      :<line1>,<line2>call RunSysCom('python -m json.tool')
+command! -range=% -nargs=0 Uniq      :<line1>,<line2>call RunSysCom('uniq')
+command! -range=% -nargs=0 Fold      :<line1>,<line2>call RunSysCom('fold -s -w' . input('width'))
+command! -range=% -nargs=0 Trim      :<line1>,<line2>call Trim()
 " }}}
