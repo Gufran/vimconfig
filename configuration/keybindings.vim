@@ -33,24 +33,13 @@ nmap <C-k> <c-w>k
 nnoremap <Tab> :<C-U>call SwitchBufTab(1)<CR>
 nnoremap <S-Tab> :<C-U>call SwitchBufTab(0)<CR>
 
-" keybindings in command line {{{
-cnoremap        <C-b> <S-Left>
-cnoremap        <C-f> <S-Right>
-silent! exe "set <S-Left>=\<Esc>b"
-silent! exe "set <S-Right>=\<Esc>f"
-" }}}
-
-
 noremap <expr> <CR> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
 
 " Unite {{{
 call unite#filters#matcher_default#use(['matcher_fuzzy'])
 
-nnoremap <silent> <C-,>     :<C-u>Unite -silent -start-insert -toggle menu:linux<CR>
 nnoremap <silent> <leader>y :<C-u>Unite -no-split -buffer-name=yank -toggle history/yank<cr>
 nnoremap <silent> <C-n>     :<C-u>Unite -profile-name=outline -toggle outline<CR>
-" nnoremap <silent> <C-n> :Tagbar<CR>
-" nnoremap <silent> <leader>t :TagbarTogglePause<CR>
 " }}} Unite end
 
 nnoremap <silent> <leader>k :VimFiler<CR>
@@ -59,5 +48,8 @@ nnoremap <silent> <leader>k :VimFiler<CR>
 nmap <CR> o<Esc>
 imap <C-CR> <Esc>o
 
-" Find TODOs in project
-command! Todo call ListTodo()
+" FZF {{{
+nmap <C-p> :Files<CR>
+nmap <C-y> :Buffers<CR>
+nmap <C-m> :Lines<CR>
+" }}} FZF

@@ -81,79 +81,10 @@ call vimfiler#custom#profile('vimfiler', 'context', {
             \ })
 " }}}
 
-" PHP Complete
-let g:phpcomplete_mappings = {
-   \ 'jump_to_def': '<C-]>',
-   \ 'jump_to_def_split': '<C-W><C-]>',
-   \ 'jump_to_def_vsplit': '<C-W><C-\>',
-   \}
-
 " Buftabline
 let g:buftabline_numbers = 2
 let g:buftabline_indicators = 1
 let buftabline_separator = 1
 
-" Syntastic {{{
-let g:syntastic_check_on_open = 0
-let g:syntastic_check_on_wq = 0
-let g:syntastic_echo_current_error = 0
-
-let g:syntastic_error_symbol = "✘"
-let g:syntastic_style_error_symbol = "✗"
-let g:syntastic_warning_symbol = "⁉︎"
-let g:syntastic_style_warning_symbol = "⁈"
-
-let g:syntastic_enable_highlighting = 1
-let g:syntastic_always_populate_loc_list = 1
-" }}}
-
-let g:fzf_colors =
-  \ { 'fg':      ['fg', 'Normal'],
-    \ 'bg':      ['bg', 'Normal'],
-    \ 'hl':      ['fg', 'Comment'],
-    \ 'fg+':     ['fg', 'CursorLine', 'CursorColumn', 'Normal'],
-    \ 'bg+':     ['bg', 'CursorLine', 'CursorColumn'],
-    \ 'hl+':     ['fg', 'Statement'],
-    \ 'info':    ['fg', 'PreProc'],
-    \ 'prompt':  ['fg', 'Conditional'],
-    \ 'pointer': ['fg', 'Exception'],
-    \ 'marker':  ['fg', 'Keyword'],
-    \ 'spinner': ['fg', 'Label'],
-    \ 'header':  ['fg', 'Comment'] }
-
-" Startify {{{
-let g:startify_session_dir = '~/.vim/session'
-let g:startify_list_order = ['bookmarks', 'sessions', 'files', 'dir', 'commands']
-let g:startify_bookmarks = [ '~/.vim', '~/.zshrc' ]
-let g:startify_files_number = 5
-let g:startify_session_persistence = 1
-let g:startify_change_to_dir = 1
-let g:startify_fortune_use_unicode = 1
-let g:startify_padding_left = 5
-let g:startify_custom_header = startify#fortune#cowsay()
-" }}}
-
-
-let g:unite_source_menu_menus = {
-	\  'linux' : {
-	\      'description'       : '                    Fire Linux tools                             ⌘ <C-m>',
-	\      'command_candidates': [
-	\        ['▷ column                         run text through `column` utility', '!column -t'],
-	\        ['▷ git diff                       show interactive git diff in a split window', 'Gdiff'],
-	\        ['▷ git commit                     commit changes in git repository', 'Gcommit'],
-	\        ['▷ git log                        show interactive git log in a split window', 'exe "silent Glog | Unite quickfix"'],
-	\        ['▷ git blame                      show interactive git blame in a split window', 'Gblame'],
-	\        ['▷ git stage                      selectively stage chages to be committed', 'Gwrite'],
-	\        ['▷ git stage hunk                 stage current hunk identified by cursor position', 'GitGutterStageHunk'],
-	\        ['▷ git unstage hunk               unstage current hunk identified by cursor position', 'GitGutterRevertHunk'],
-	\        ['▷ git toggle diff                toggle diff highlighting', 'GitGutterLineHighlightsToggle'],
-	\        ['▷ git checkout                   checkout a commit or branch', 'Gread'],
-	\        ['▷ git rm                         remove changes or untracked files', 'Gremove'],
-	\        ['▷ git mv                         move file to another location and start tracking', 'exe "Gmove " input("destination: ")'],
-	\        ['▷ git push                       push committed changes to a remote', 'Git! push'],
-	\        ['▷ git pull                       pull changes from a remote', 'Git! pull'],
-	\        ['▷ git prompt                     start an interactive git shell', 'exe "Git! " input("git command: ")'],
-    \    ],
-	\  },
-	\}
-
+" One colorscheme
+let g:one_allow_italics = 1

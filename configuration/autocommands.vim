@@ -1,8 +1,6 @@
 augroup misc
     autocmd!
     autocmd BufWritePre * :call MkDirNX()
-    autocmd InsertEnter * :set number
-    autocmd InsertLeave * :set relativenumber
     autocmd StdinReadPre * let s:std_in=1
 augroup end
 
@@ -51,7 +49,30 @@ augroup python
     autocmd FileType python set tabstop=4
     autocmd FileType python set softtabstop=4
     autocmd FileType python set shiftwidth=4
-    autocmd FileType python set textwidth=79
+    autocmd FileType python set textwidth=120
     autocmd FileType python set foldmethod=indent
     autocmd FileType python nmap <silent> <C-]> :YcmCompleter GoToDeclaration<CR>
 augroup end
+
+augroup todo
+    autocmd!
+    autocmd FileType todo set tabstop=3
+    autocmd FileType todo set softtabstop=3
+    autocmd FileType todo set shiftwidth=3
+    autocmd FileType todo set foldenable
+    autocmd FileType todo set foldmethod=expr
+    autocmd FileType todo set foldcolumn=4
+    autocmd FileType todo set foldexpr=FoldLevel(getline(v:lnum),getline(v:lnum+1))
+
+    autocmd FileType todo command -range -nargs=0 ToggleDone :<line1>,<line2>call ToggleTaskDone()
+    autocmd FileType todo nnoremap md :ToggleDone<CR>
+
+    autocmd FileType todo setlocal conceallevel=2
+    autocmd FileType todo syntax match Comment               /^=.*=$/
+    autocmd FileType todo syntax match SpecialComment        /\s\@<=.*#done.*/
+    autocmd FileType todo syntax match String                /@\w\+/
+    autocmd FileType todo syntax match Type                  /^\w.*/
+    autocmd FileType todo syntax match ItemExpandLine        /\s\@<=\s\(\s\w\)\@=/ conceal cchar=|
+    autocmd FileType todo syntax match ItemParentExpandLine  /\(^\s\)\@<=\s\(\s\+\w\)\@=/ conceal cchar=|
+augroup end
+

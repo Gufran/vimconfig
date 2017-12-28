@@ -19,8 +19,8 @@ if has('gui_running')
     set guioptions-=P
     set guioptions-=c
 else
-    let &t_8f="\e[38;2;%ld;%ld;%ldm"
-    let &t_8b="\e[48;2;%ld;%ld;%ldm"
+    let &t_8f="\e[38;2;%lu;%lu;%lum"
+    let &t_8b="\e[48;2;%lu;%lu;%lum"
 
     if !has('nvim')
         set t_ut=
@@ -45,11 +45,16 @@ if has('gui_macvim')
     set macmeta
 endif
 
-set background=light
-colorscheme base16-onedark
+if $ITERM_PROFILE =~ "Dark"
+    set background=dark
+else
+    set background=light
+endif
+
+colorscheme one
 
 set fileformat=unix
-set wildmode=longest,list
+set wildmode=longest,full
 set history=1000
 set undofile
 set undodir=~/.vim/undodir
@@ -63,7 +68,6 @@ set ignorecase
 set smartcase
 set showmode
 set pastetoggle=<F2>
-set relativenumber
 set tabstop=4
 set shiftwidth=4
 set softtabstop=4
@@ -80,6 +84,7 @@ set listchars=""
 set listchars+=tab:‣‣
 set listchars+=trail:∙
 set foldlevel=10
+set number
 
 set statusline=
 
@@ -101,7 +106,6 @@ set statusline+=%2*\ \ %m%r%w\ %P\ \           " Modified? Readonly? Top/bot.
 command! -range=% -nargs=0 Columnize :<line1>,<line2>call RunSysCom('column -t -s "' . nr2char(getchar()) . '"')
 command! -range=% -nargs=0 Cut       :<line1>,<line2>call RunSysCom('tr -s " " | cut -d "' . input('delimiter', ' ') . '" -f ' . input('fields'))
 command! -range=% -nargs=0 Json      :<line1>,<line2>call RunSysCom('python -m json.tool')
-command! -range=% -nargs=0 Uniq      :<line1>,<line2>call RunSysCom('uniq')
 command! -range=% -nargs=0 Fold      :<line1>,<line2>call RunSysCom('fold -s -w' . input('width'))
 command! -range=% -nargs=0 Trim      :<line1>,<line2>call Trim()
 " }}}
