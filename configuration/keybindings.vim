@@ -53,3 +53,8 @@ nmap <C-p> :Files<CR>
 nmap <C-y> :Buffers<CR>
 nmap <C-m> :Lines<CR>
 " }}} FZF
+
+
+" Calculations {{{
+nnoremap Q 0yt=A<C-r>=<C-r>"<CR><ESC>
+" }}} Calculations

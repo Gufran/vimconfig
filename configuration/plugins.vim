@@ -16,5 +16,6 @@ Plug 'tpope/vim-commentary'
 Plug 'Valloric/YouCompleteMe',                { 'do': './install.py' }
 Plug 'airblade/vim-gitgutter'
 Plug 'plasticboy/vim-markdown',               { 'for': 'markdown' }
+Plug 'arcticicestudio/nord-vim'
 
 call plug#end()

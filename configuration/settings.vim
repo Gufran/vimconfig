@@ -3,6 +3,14 @@ syntax on
 
 let mapleader = ','
 
+" Nord Theme
+let g:nord_italic = 1
+let g:nord_underline = 1
+let g:nord_italic_comments = 1
+let g:nord_uniform_diff_background = 1
+let g:nord_cursor_line_number_background = 1
+
+
 " Unite
 let g:unite_source_history_yank_enable = 1
 let g:unite_source_grep_command = 'ag'

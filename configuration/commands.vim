@@ -4,7 +4,7 @@ set encoding=utf8
 if has('gui_running')
     if has('mac')
         set macligatures
-        set guifont=Fira\ Code\ Retina:h16
+        set guifont=Hasklig\ Medium:h15
     elseif has('unix')
         set guifont=Source\ Code\ Pro\ For\ Powerline
     endif
@@ -45,13 +45,8 @@ if has('gui_macvim')
     set macmeta
 endif
 
-if $ITERM_PROFILE =~ "Dark"
-    set background=dark
-else
-    set background=light
-endif
-
-colorscheme one
+set background=dark
+colorscheme nord
 
 set fileformat=unix
 set wildmode=longest,full

@@ -76,3 +76,15 @@ augroup todo
     autocmd FileType todo syntax match ItemParentExpandLine  /\(^\s\)\@<=\s\(\s\+\w\)\@=/ conceal cchar=|
 augroup end
 
+augroup manifest
+    autocmd!
+    autocmd BufWritePost manifest !hclfmt -w %
+    autocmd BufWritePost *.nomad !hclfmt -w %
+    autocmd BufWritePost *.hcl !hclfmt -w %
+augroup end
+
+augroup hcl
+    autocmd!
+    autocmd BufEnter *.hcl setlocal ft=hcl
+    autocmd BufEnter *.nomad setlocal ft=hcl
+augroup end
